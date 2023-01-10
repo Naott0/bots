@@ -170,7 +170,6 @@ async def process_pnd_command(message: types.Message):
 
 
 
-
 async def process_moscow_command(message: types.Message):
     url = "https://api.weather.yandex.ru/v2/fact?lat=55.81579208&lon=37.38003159&extra=true"
     headers = {'X-Yandex-API-Key': "c44361a5-54fe-400d-a65d-782c8fc66dcd"}
