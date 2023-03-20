@@ -14,17 +14,14 @@ API_TOKEN: str = TOK
 bot: Bot = Bot(token=API_TOKEN)
 dp: Dispatcher = Dispatcher(bot)
 
-
-
-
 # Создаем объект клавиатуры
 keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 keyboard2: ReplyKeyboardMarkup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 # Создаем объекты кнопок
 button_1: KeyboardButton = KeyboardButton('Москва')
-button_2: KeyboardButton = KeyboardButton('Махачкала')
-button_3: KeyboardButton = KeyboardButton('Ростов-на-Дону ')
-button_5: KeyboardButton = KeyboardButton('Aктуальная погода сейчас')
+# button_2: KeyboardButton = KeyboardButton('Махачкала')
+# button_3: KeyboardButton = KeyboardButton('Ростов-на-Дону ')
+# button_5: KeyboardButton = KeyboardButton('Aктуальная погода сейчас')
 button_6: KeyboardButton = KeyboardButton('Курс валют')
 button_7: KeyboardButton = KeyboardButton('Факты о кошках [EN]')
 button_8: KeyboardButton = KeyboardButton('Узнать IP адрес')
@@ -34,10 +31,8 @@ button_11: KeyboardButton = KeyboardButton('Сочи')
 button_12: KeyboardButton = KeyboardButton('Генератор оскорблений 18+')
 button_13: KeyboardButton = KeyboardButton('Веб камеры Ростов-на-Дону')
 # Добавляем кнопки в клавиатуру методом add
-keyboard.add(button_1, button_2, button_11, button_3)
-keyboard2.add(button_5, button_6, button_7, button_9, button_10, button_12,button_13)
-
-
+# keyboard.add(button_1, button_2, button_11, button_3)
+keyboard2.add(button_6, button_7, button_9, button_10, button_12, button_13)
 
 
 # Этот хэндлер будет срабатывать на команду "/start"
@@ -98,25 +93,19 @@ async def process_cat_command(message: types.Message):
     temp = (a.get('fact'))
     await message.answer(f'{temp}')
 
+
 # Создаем объект инлайн-клавиатуры
 keyboard5: InlineKeyboardMarkup = InlineKeyboardMarkup()
 
 # Создаем объекты инлайн-кнопок
 url_button_1: InlineKeyboardButton = InlineKeyboardButton(
-                                        text='Cтадион, левый берег"',
-                                        url='https://webcams.windy.com/webcams/stream/1481608492?lookr.com:98556ab992b25aa05817ba65ce8c7bce:1673268752')
+    text='Cтадион, левый берег',
+    url='https://webcams.windy.com/webcams/stream/1481608492?lookr.com:98556ab992b25aa05817ba65ce8c7bce:1673268752')
 url_button_2: InlineKeyboardButton = InlineKeyboardButton(
-                                        text='Соборный',
-                                        url='https://webcams.windy.com/webcams/stream/1638727136')
-url_button_3: InlineKeyboardButton = InlineKeyboardButton(
-                                        text='Ворошиловский проспект',
-                                        url='https://webcams.windy.com/webcams/stream/1658941999')
-url_button_4: InlineKeyboardButton = InlineKeyboardButton(
-                                        text='Набережная',
-                                        url='https://webcams.windy.com/webcams/stream/1614560597')
-
+    text='Соборный',
+    url='https://webcams.windy.com/webcams/stream/1638727136')
 # Добавляем кнопки в клавиатуру методом add
-keyboard5.add(url_button_1).add(url_button_2).add(url_button_3).add(url_button_4)
+keyboard5.add(url_button_1).add(url_button_2)
 
 
 async def process_cam_command(message: types.Message):
@@ -135,7 +124,7 @@ async def process_mat_command(message: types.Message):
 
 async def process_pnd_command(message: types.Message):
     url = "https://api.weather.yandex.ru/v2/fact?lat=47.222078&lon=39.720349&extra=true"
-    headers = {'X-Yandex-API-Key': "c44361a5-54fe-400d-a65d-782c8fc66dcd"}
+    headers = {'X-Yandex-API-Key': "097bf658-bf6b-445c-b0a3-6214d61b54d0"}
     response = requests.request("GET", url, headers=headers)
     a = json.loads(response.text)
     temp = (a.get('temp'))
@@ -169,10 +158,9 @@ async def process_pnd_command(message: types.Message):
         f'{rt} \n {current_datetime} \n {z} {temp} \n {b} {feels_like} \n {c} {condition} \n {vet} {wind_dir3} \n {v} {wind_speed} \n {d} {pressure_mm} \n {h} {humidity}')
 
 
-
 async def process_moscow_command(message: types.Message):
     url = "https://api.weather.yandex.ru/v2/fact?lat=55.81579208&lon=37.38003159&extra=true"
-    headers = {'X-Yandex-API-Key': "c44361a5-54fe-400d-a65d-782c8fc66dcd"}
+    headers = {'X-Yandex-API-Key': "097bf658-bf6b-445c-b0a3-6214d61b54d0"}
     response = requests.request("GET", url, headers=headers)
     a = json.loads(response.text)
     temp = (a.get('temp'))
@@ -208,7 +196,7 @@ async def process_moscow_command(message: types.Message):
 
 async def process_sochi_command(message: types.Message):
     url = "https://api.weather.yandex.ru/v2/fact?lat=43.58547592&lon=39.72309494&extra=true"
-    headers = {'X-Yandex-API-Key': "c44361a5-54fe-400d-a65d-782c8fc66dcd"}
+    headers = {'X-Yandex-API-Key': "097bf658-bf6b-445c-b0a3-6214d61b54d0"}
     response = requests.request("GET", url, headers=headers)
     a = json.loads(response.text)
     temp = (a.get('temp'))
@@ -243,8 +231,8 @@ async def process_sochi_command(message: types.Message):
 
 
 async def process_makala_command(message: types.Message):
-    url = "https://api.weather.yandex.ru/v2/fact?lat=42.98310089&lon=47.5047493&extra=true"
-    headers = {'X-Yandex-API-Key': "c44361a5-54fe-400d-a65d-782c8fc66dcd"}
+    url = "https://api.weather.yandex.ru/v2/forecast?lat=42.98310089&lon=47.5047493&extra=true"
+    headers = {'X-Yandex-API-Key': "7f5c2cf9-0976-4e02-9c80-b99c47390c44"}
     response = requests.request("GET", url, headers=headers)
     a = json.loads(response.text)
     temp = (a.get('temp'))
@@ -289,7 +277,7 @@ async def process_rub_command(message: types.Message):
     response = requests.request("GET", url, headers=headers, data=payload)
     rub = (response.text[127:139])
     t = "USD"
-    iu = "Курс валют"
+    iu = "Курс валют на данный момент:"
 
     url = "https://api.apilayer.com/fixer/latest?symbols=RUB&base=EUR"
 
@@ -311,22 +299,24 @@ async def process_rub_command(message: types.Message):
     response = requests.request("GET", url, headers=headers, data=payload)
     CNY = (response.text[127:139])
     CNY1 = "CNY"
-    info = "Fixer.io - Данные об обменных курсах 170 мировых валют в режиме реального времени, обновляются каждые 60 секунд.  Данные о валютах, представляемых Fixer, поступают от поставщиков финансовых данных и банков, включая Европейский центральный банк."
-    await message.answer(f'{iu}\n  {t}:{rub}{eur1}:{eur}{CNY1}:{CNY}\n{info}')
+    info = "Fixer.io - Данные об обменных курсах 170 мировых валют в режиме реального времени, обновляются каждые 60 " \
+           "секунд.  Данные о валютах, представляемых Fixer, поступают от поставщиков финансовых данных и банков, " \
+           "включая Европейский центральный банк."
+    await message.answer(f'{iu}\n  {t}: {rub}{eur1}: {eur}{CNY1}: {CNY}\n{info}')
 
 
 # Этот хэндлер будет срабатывать на любые ваши текстовые сообщения, кроме команд "/start" и "/help"
 async def send_echo(message: types.Message):
-    await message.reply("Bы ввели неверную команду, воспользуйтесь меню \nили отправьте пожалуйста / start")
+    await message.reply("Bы ввели неверную команду, воспользуйтесь меню \nили отправьте пожалуйста /start")
 
 
 # Регистрируем хэндлеры
 dp.register_message_handler(process_start_command, commands='start')
-dp.register_message_handler(process_pogoda_command, text='Aктуальная погода сейчас')
-dp.register_message_handler(process_pnd_command, text='Ростов-на-Дону')
-dp.register_message_handler(process_sochi_command, text='Сочи')
+# dp.register_message_handler(process_pogoda_command, text='Aктуальная погода сейчас')
+# dp.register_message_handler(process_pnd_command, text='Ростов-на-Дону')
+# dp.register_message_handler(process_sochi_command, text='Сочи')
 dp.register_message_handler(process_moscow_command, text='Москва')
-dp.register_message_handler(process_makala_command, text='Махачкала')
+# dp.register_message_handler(process_makala_command, text='Махачкала')
 dp.register_message_handler(process_rub_command, text='Курс валют')
 dp.register_message_handler(process_cat_command, text='Факты о кошках [EN]')
 dp.register_message_handler(process_ip_command, text='Узнать IP адрес')
