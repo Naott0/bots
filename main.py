@@ -18,7 +18,7 @@ dp: Dispatcher = Dispatcher(bot)
 keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 keyboard2: ReplyKeyboardMarkup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 # Создаем объекты кнопок
-button_1: KeyboardButton = KeyboardButton('Москва')
+# button_1: KeyboardButton = KeyboardButton('Москва')
 # button_2: KeyboardButton = KeyboardButton('Махачкала')
 # button_3: KeyboardButton = KeyboardButton('Ростов-на-Дону ')
 # button_5: KeyboardButton = KeyboardButton('Aктуальная погода сейчас')
@@ -102,10 +102,16 @@ url_button_1: InlineKeyboardButton = InlineKeyboardButton(
     text='Cтадион, левый берег',
     url='https://webcams.windy.com/webcams/stream/1481608492?lookr.com:98556ab992b25aa05817ba65ce8c7bce:1673268752')
 url_button_2: InlineKeyboardButton = InlineKeyboardButton(
-    text='Соборный',
-    url='https://webcams.windy.com/webcams/stream/1638727136')
+                                        text='Соборный',
+                                        url='https://webcams.windy.com/webcams/stream/1638727136')
+url_button_3: InlineKeyboardButton = InlineKeyboardButton(
+                                        text='Ворошиловский проспект',
+                                        url='https://webcams.windy.com/webcams/stream/1658941999')
+url_button_4: InlineKeyboardButton = InlineKeyboardButton(
+                                        text='Набережная',
+                                        url='https://webcams.windy.com/webcams/stream/1614560597')
 # Добавляем кнопки в клавиатуру методом add
-keyboard5.add(url_button_1).add(url_button_2)
+keyboard5.add(url_button_1).add(url_button_2).add(url_button_3).add(url_button_4)
 
 
 async def process_cam_command(message: types.Message):
@@ -315,7 +321,7 @@ dp.register_message_handler(process_start_command, commands='start')
 # dp.register_message_handler(process_pogoda_command, text='Aктуальная погода сейчас')
 # dp.register_message_handler(process_pnd_command, text='Ростов-на-Дону')
 # dp.register_message_handler(process_sochi_command, text='Сочи')
-dp.register_message_handler(process_moscow_command, text='Москва')
+# dp.register_message_handler(process_moscow_command, text='Москва')
 # dp.register_message_handler(process_makala_command, text='Махачкала')
 dp.register_message_handler(process_rub_command, text='Курс валют')
 dp.register_message_handler(process_cat_command, text='Факты о кошках [EN]')
