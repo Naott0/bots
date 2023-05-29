@@ -3,6 +3,7 @@ import os
 from aiogram import types
 
 AUDIO_URL = 'http://muzmo.ru/get/music/20140507/muzmo_ru_Metallica_-_Metalica_Fuel_12710830.mp3?sid=3ip4uccps4mp3ljt2viipsqcep'
+AUDIO_URL2 ='https://mp3muza.com/music/metallica/#'
 AUDIO_PATH = os.path.expanduser('GTA_Vice_City_Radio_-_V-ROCK.mp3')
 
 
