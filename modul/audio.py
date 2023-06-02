@@ -1,6 +1,5 @@
 from aiogram import types
-
-from bots import keyboards
+from bots.modul import keyboards
 
 
 async def process_audio_command(message: types.Message):
@@ -9,5 +8,5 @@ async def process_audio_command(message: types.Message):
         reply_markup=keyboards.keyboard3)
 async def process_gta_command(message: types.Message):
     await message.answer(
-        text='2',
+        text='Выбери радио !',
         reply_markup=keyboards.keyboard5)

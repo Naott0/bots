@@ -4,10 +4,10 @@ from aiogram.bot import bot
 
 AUDIO_URL = 'http://muzmo.ru/get/music/20140507/muzmo_ru_Metallica_-_Metalica_Fuel_12710830.mp3?sid=3ip4uccps4mp3ljt2viipsqcep'
 AUDIO_URL2 = 'https://mp3muza.com/music/metallica/#'
-AUDIO_V_ROCK = os.path.expanduser('GTA_Vice_City_Radio_-_V-ROCK.mp3')
+AUDIO_V_ROCK = os.path.expanduser('/home/support/TelegramBot/bots/audio/GTA_Vice_City_Radio_-_V-ROCK.mp3')
 AUDIO_FLASH = os.path.expanduser('Flash_FM.mp3')
-JPG = open('1.jpeg', 'rb')
-FUEL = open('fuel.jpg', 'rb')
+JPG = open('/home/support/TelegramBot/bots/audio/1.jpeg', 'rb')
+FUEL = open('/home/support/TelegramBot/bots/audio/fuel.jpg', 'rb')
 
 async def process_gta_v_rock_command(message: types.Message):
     audio = types.InputFile(AUDIO_V_ROCK)

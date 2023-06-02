@@ -1,8 +1,8 @@
 import dotenv
 import os
 from aiogram import Bot, Dispatcher, executor, types
-from bots import cam, dog, cat, nassa, currency, mat, audio, music
-from bots.keyboards import keyboard2
+from bots.modul import cams, dog, cat, nassa, currency, mat, audio, music
+from bots.modul.keyboards import keyboard2
 
 dotenv.load_dotenv()
 TOK = os.getenv("API_TOKEN")
@@ -39,7 +39,7 @@ dp.register_message_handler(cat.process_cat_command, text='Факты о кош�
 dp.register_message_handler(nassa.process_nassa_command, text='Новости Nasa [EN]')
 dp.register_message_handler(dog.process_dog_command, text='Random dog')
 dp.register_message_handler(mat.process_mat_command, text='Генератор оскорблений 18+')
-dp.register_message_handler(cam.process_cam_command, text='Веб камеры Ростов-на-Дону')
+dp.register_message_handler(cams.process_cam_command, text='Веб камеры Ростов-на-Дону')
 dp.register_message_handler(audio.process_audio_command, text='Audio')
 dp.register_message_handler(music.process_metallica_command, text='Metallica')
 dp.register_message_handler(audio.process_gta_command, text='GTA Vice City Radio')
