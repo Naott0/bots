@@ -12,7 +12,15 @@ def download():
         dpg.set_value('bar', i)
         time.sleep(0.1)
 
-    print("!!!!")
+    print("Finish")
+    with dpg.window(label="", pos=(50,50), tag='modal_id'):
+        dpg.add_text('Loading is complete')
+        dpg.add_button(label="OK", callback=lambda: dpg.configure_item("modal_id", show=False))
+
+
+
+
+
 
 
 def url(sender):
@@ -21,8 +29,11 @@ def url(sender):
     sop = (dpg.get_value(sender))
     pytube_sop = pytube.YouTube(sop)
     title = pytube_sop.title
-    print('Fin')
+    print('Url OK')
     print(title)
+
+
+
 
 
 def on_kill():
@@ -33,8 +44,6 @@ class Value:
     pass
 
 
-
-
 dpg.create_context()
 
 value = Value()
@@ -43,28 +52,24 @@ with dpg.window(tag="Primary Window"):
         with dpg.menu(label="File"):
             dpg.add_menu_item(label="Exit", callback=on_kill)
 
-        dpg.add_menu_item(label="Help")
+        dpg.add_menu_item(label="Help", tag='Help')
 
 
 
-    dpg.add_text("Hi! download Youtube for yourself ! ",pos=(10, 30))
+    dpg.add_text("Hi! download Youtube for yourself ! ",  pos=(10, 30))
     dpg.add_progress_bar(tag='bar', default_value=0, pos=(10, 60))
     dpg.add_input_text(label='URL', callback=url, tag='url', pos=(10, 90))
     dpg.add_button(label="Download", callback=download, width=100, height=20, tag='Save', pos=(10, 120))
 
-
-
-
     with dpg.tooltip("Save"):
         dpg.add_text("Click to Download")
-
-
 
     with dpg.tooltip("url"):
         dpg.add_text("Paste url")
 
     with dpg.tooltip("bar"):
         dpg.add_text("Progress")
+
 
 dpg.create_viewport(title='Downloader', width=400, height=100)
 dpg.setup_dearpygui()
