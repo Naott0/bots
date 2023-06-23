@@ -1,23 +1,83 @@
 import os
 from aiogram import types
-from aiogram.bot import bot
+
 
 AUDIO_URL = 'http://muzmo.ru/get/music/20140507/muzmo_ru_Metallica_-_Metalica_Fuel_12710830.mp3?sid=3ip4uccps4mp3ljt2viipsqcep'
 AUDIO_URL2 = 'https://mp3muza.com/music/metallica/#'
-AUDIO_V_ROCK = os.path.expanduser('/home/support/TelegramBot/bots/audio/GTA_Vice_City_Radio_-_V-ROCK.mp3')
-AUDIO_FLASH = os.path.expanduser('Flash_FM.mp3')
-JPG = open('/home/support/TelegramBot/bots/audio/1.jpeg', 'rb')
+AUDIO_V_ROCK = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/GTA_Vice_City/V_ROCK/GTA_Vice_City_Radio_-_V-ROCK.mp3')
+AUDIO_FLASH = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/GTA_Vice_City/FLASH_FM/02-halls_and_oates-out_of_touch.mp3')
+METALLICA1 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/01 - Metallica - 72 Seasons.mp3')
+METALLICA2 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/02 - Metallica - Shadows Follow.mp3')
+METALLICA3 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/03 - Metallica - Screaming Suicide.mp3')
+METALLICA4 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/04 - Metallica - Sleepwalk My Life Away.mp3')
+METALLICA5 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/05 - Metallica - You Must Burn!.mp3')
+METALLICA6 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/06 - Metallica - Lux Æterna.mp3')
+METALLICA7 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/07 - Metallica - Crown of Barbed Wire.mp3')
+METALLICA8 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/08 - Metallica - Chasing Light.mp3')
+METALLICA9 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/09 - Metallica - If Darkness Had a Son.mp3')
+METALLICA10 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/10 - Metallica - Too Far Gone-.mp3')
+METALLICA11 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/11 - Metallica - Room of Mirrors.mp3')
+METALLICA12 = os.path.expanduser(
+    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/12 - Metallica - Inamorata.mp3')
+
+
 FUEL = open('/home/support/TelegramBot/bots/audio/fuel.jpg', 'rb')
+
+
+
 
 async def process_gta_v_rock_command(message: types.Message):
     audio = types.InputFile(AUDIO_V_ROCK)
-    await message.answer_photo(JPG)
+    VROCK = open('/home/support/TelegramBot/bots/audio/GTA_Vice_City/V_ROCK/1.jpeg', 'rb')
+    await message.answer_photo(VROCK)
     await message.answer_audio(audio, performer='GTA vice city', title='V-Rock Redio')
+
+
 
 async def process_flash_fm_command(message: types.Message):
     audio = types.InputFile(AUDIO_FLASH)
-    # await message.answer_photo(JPG)
+    FLASH = open('/home/support/TelegramBot/bots/audio/GTA_Vice_City/FLASH_FM/1.jpg', 'rb')
+    await message.answer_photo(FLASH)
     await message.answer_audio(audio, performer='GTA vice city', title='Flash-FM')
+
+
 async def process_metallica_command(message: types.Message):
-    await message.answer_photo(FUEL)
-    await message.answer_audio(AUDIO_URL, performer='Foo', title='Bar')
+    audio = types.InputFile(METALLICA1)
+    M72 = open('/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/cover.jpg', 'rb')
+    await message.answer_photo(M72)
+    await message.answer_audio(audio)
+    audio1 = types.InputFile(METALLICA2)
+    await message.answer_audio(audio1)
+    audio3 = types.InputFile(METALLICA3)
+    await message.answer_audio(audio3)
+    audio4 = types.InputFile(METALLICA4)
+    await message.answer_audio(audio4)
+    audio5 = types.InputFile(METALLICA5)
+    await message.answer_audio(audio5)
+    audio6 = types.InputFile(METALLICA6)
+    await message.answer_audio(audio6)
+    audio7 = types.InputFile(METALLICA7)
+    await message.answer_audio(audio7)
+    audio8 = types.InputFile(METALLICA8)
+    await message.answer_audio(audio8)
+    audio9 = types.InputFile(METALLICA9)
+    await message.answer_audio(audio9)
+    audio10 = types.InputFile(METALLICA10)
+    await message.answer_audio(audio10)
+    audio11 = types.InputFile(METALLICA11)
+    await message.answer_audio(audio11)
+    audio12 = types.InputFile(METALLICA12)
+    await message.answer_audio(audio12)
