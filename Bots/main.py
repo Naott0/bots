@@ -1,8 +1,8 @@
 import dotenv
 import os
 from aiogram import Bot, Dispatcher, executor, types
-from bots.modul import cams, dog, cat, nassa, currency, mat, audio, music
-from bots.modul.keyboards import keyboard2
+from Project.Bots.modul import cat, mat, music, nassa, cams, audio, dog, currency
+from Project.Bots.modul.keyboards import keyboard2
 
 dotenv.load_dotenv()
 TOK = os.getenv("API_TOKEN")

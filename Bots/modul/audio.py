@@ -1,5 +1,5 @@
 from aiogram import types
-from bots.modul import keyboards
+from Project.Bots.modul import keyboards
 
 
 async def process_audio_command(message: types.Message):
