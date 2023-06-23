@@ -5,43 +5,43 @@ from aiogram import types
 AUDIO_URL = 'http://muzmo.ru/get/music/20140507/muzmo_ru_Metallica_-_Metalica_Fuel_12710830.mp3?sid=3ip4uccps4mp3ljt2viipsqcep'
 AUDIO_URL2 = 'https://mp3muza.com/music/metallica/#'
 AUDIO_V_ROCK = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/GTA_Vice_City/V_ROCK/GTA_Vice_City_Radio_-_V-ROCK.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/V_ROCK/GTA_Vice_City_Radio_-_V-ROCK.mp3')
 AUDIO_FLASH = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/GTA_Vice_City/FLASH_FM/02-halls_and_oates-out_of_touch.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/02-halls_and_oates-out_of_touch.mp3')
 METALLICA1 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/01 - Metallica - 72 Seasons.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/01 - Metallica - 72 Seasons.mp3')
 METALLICA2 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/02 - Metallica - Shadows Follow.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/02 - Metallica - Shadows Follow.mp3')
 METALLICA3 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/03 - Metallica - Screaming Suicide.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/03 - Metallica - Screaming Suicide.mp3')
 METALLICA4 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/04 - Metallica - Sleepwalk My Life Away.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/04 - Metallica - Sleepwalk My Life Away.mp3')
 METALLICA5 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/05 - Metallica - You Must Burn!.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/05 - Metallica - You Must Burn!.mp3')
 METALLICA6 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/06 - Metallica - Lux Æterna.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/06 - Metallica - Lux Æterna.mp3')
 METALLICA7 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/07 - Metallica - Crown of Barbed Wire.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/07 - Metallica - Crown of Barbed Wire.mp3')
 METALLICA8 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/08 - Metallica - Chasing Light.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/08 - Metallica - Chasing Light.mp3')
 METALLICA9 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/09 - Metallica - If Darkness Had a Son.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/09 - Metallica - If Darkness Had a Son.mp3')
 METALLICA10 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/10 - Metallica - Too Far Gone-.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/10 - Metallica - Too Far Gone-.mp3')
 METALLICA11 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/11 - Metallica - Room of Mirrors.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/11 - Metallica - Room of Mirrors.mp3')
 METALLICA12 = os.path.expanduser(
-    '/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/12 - Metallica - Inamorata.mp3')
+    '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/12 - Metallica - Inamorata.mp3')
 
-
-FUEL = open('/home/support/TelegramBot/bots/audio/fuel.jpg', 'rb')
+#
+# FUEL = open('/Project/audio/fuel.jpg', 'rb')
 
 
 
 
 async def process_gta_v_rock_command(message: types.Message):
     audio = types.InputFile(AUDIO_V_ROCK)
-    VROCK = open('/home/support/TelegramBot/bots/audio/GTA_Vice_City/V_ROCK/1.jpeg', 'rb')
+    VROCK = open('/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/V_ROCK/1.jpeg', 'rb')
     await message.answer_photo(VROCK)
     await message.answer_audio(audio, performer='GTA vice city', title='V-Rock Redio')
 
@@ -49,14 +49,14 @@ async def process_gta_v_rock_command(message: types.Message):
 
 async def process_flash_fm_command(message: types.Message):
     audio = types.InputFile(AUDIO_FLASH)
-    FLASH = open('/home/support/TelegramBot/bots/audio/GTA_Vice_City/FLASH_FM/1.jpg', 'rb')
+    FLASH = open('/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/1.jpg', 'rb')
     await message.answer_photo(FLASH)
     await message.answer_audio(audio, performer='GTA vice city', title='Flash-FM')
 
 
 async def process_metallica_command(message: types.Message):
     audio = types.InputFile(METALLICA1)
-    M72 = open('/home/support/TelegramBot/bots/audio/Metallica/Metallica - 72 Seasons/cover.jpg', 'rb')
+    M72 = open('/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/cover.jpg', 'rb')
     await message.answer_photo(M72)
     await message.answer_audio(audio)
     audio1 = types.InputFile(METALLICA2)
