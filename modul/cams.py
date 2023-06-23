@@ -3,7 +3,7 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 async def process_cam_command(message: types.Message):
-    await message.answer(text='Это инлайн-кнопки с параметром "url"',
+    await message.answer(text='Данный ресурс работает с нестабильно,\nВы можете попробовать посмотреть трансляцию с камер',
                          reply_markup=keyboard4)
 
 

@@ -9,4 +9,4 @@ async def process_dog_command(message: types.Message):
     response = requests.get(url)
     ui = json.loads(response.text)
     gav = (ui.get('message'))
-    await message.answer(f'{gav}')
+    await message.answer_photo(gav)
