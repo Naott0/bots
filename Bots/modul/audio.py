@@ -8,5 +8,5 @@ async def process_audio_command(message: types.Message):
         reply_markup=keyboards.keyboard3)
 async def process_gta_command(message: types.Message):
     await message.answer(
-        text='Выбери радио !',
+        text='Выбери радиостанцию!',
         reply_markup=keyboards.keyboard5)

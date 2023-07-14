@@ -77,9 +77,9 @@ async def process_wave_command(message: types.Message):
     WAVE = open('/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/Wave 103/1_.jpg', 'rb')
     await message.answer_photo(WAVE)
     await message.answer_audio(audio1, performer='GTA vice city part 1', title='Wave-103-FM')
-    await message.answer_audio(audio2, performer='GTA vice city part 1', title='Wave-103-FM')
-    await message.answer_audio(audio3, performer='GTA vice city part 1', title='Wave-103-FM')
-    await message.answer_audio(audio4, performer='GTA vice city part 1', title='Wave-103-FM')
+    await message.answer_audio(audio2, performer='GTA vice city part 2', title='Wave-103-FM')
+    await message.answer_audio(audio3, performer='GTA vice city part 3', title='Wave-103-FM')
+    await message.answer_audio(audio4, performer='GTA vice city part 4', title='Wave-103-FM')
 
 async def process_metallica_command(message: types.Message):
     audio = types.InputFile(METALLICA1)
