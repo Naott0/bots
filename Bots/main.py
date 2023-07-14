@@ -46,6 +46,10 @@ dp.register_message_handler(audio.process_gta_command, text='GTA Vice City Radio
 dp.register_message_handler(music.process_wave_command, text='Wave 103')
 dp.register_message_handler(music.process_gta_v_rock_command, text='V-ROCK')
 dp.register_message_handler(music.process_flash_fm_command, text='Flash-FM')
+dp.register_message_handler(music.process_wildstyle_command, text='Wildstyle')
+dp.register_message_handler(music.process_emotion_command, text='Emotion 98.3')
+dp.register_message_handler(music.process_fever_command, text='Fever 105')
+dp.register_message_handler(music.process_espantoso_command, text='Espantoso')
 dp.register_message_handler(send_echo)
 
 if __name__ == '__main__':

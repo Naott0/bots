@@ -1,7 +1,5 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
-
-
 # Создаем объект клавиатуры
 keyboard: ReplyKeyboardMarkup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 keyboard2: ReplyKeyboardMarkup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
@@ -21,13 +19,14 @@ button_16: KeyboardButton = KeyboardButton('GTA Vice City Radio')
 button_17: KeyboardButton = KeyboardButton('Flash-FM')
 button_18: KeyboardButton = KeyboardButton('V-ROCK')
 button_19: KeyboardButton = KeyboardButton('Wave 103')
-
-
+button_20: KeyboardButton = KeyboardButton('Wildstyle')
+button_21: KeyboardButton = KeyboardButton('Emotion 98.3')
+button_22: KeyboardButton = KeyboardButton('Fever 105')
+button_23: KeyboardButton = KeyboardButton('Espantoso')
 # Добавляем кнопки в клавиатуру методом add
 keyboard2.add(button_6, button_7, button_9, button_10, button_12, button_13, button_14)
 keyboard3.add(button_15, button_16)
-keyboard5.add(button_17, button_18, button_19)
-
+keyboard5.add(button_17, button_18, button_19, button_20, button_21, button_22, button_23)
 
 # button_1: KeyboardButton = KeyboardButton('Москва')
 # button_2: KeyboardButton = KeyboardButton('Махачкала')
