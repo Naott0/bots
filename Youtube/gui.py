@@ -67,7 +67,7 @@ with dpg.window(tag="Primary Window"):
     dpg.add_input_text(label='URL', callback=url, tag='url', pos=(10, 90))
     dpg.add_button(label="Download", callback=download, width=100, height=20, tag='Save', pos=(10, 120))
     dpg.add_image("texture_tag", pos=(310, 50))
-    dpg.add_button(label='111111',pos=(310, 50))
+    dpg.add_button(label='111111', pos=(310, 50))
 
     with dpg.tooltip("Save"):
         dpg.add_text("Click to Download")
