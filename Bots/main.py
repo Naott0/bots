@@ -43,6 +43,7 @@ dp.register_message_handler(cams.process_cam_command, text='Веб камеры 
 dp.register_message_handler(audio.process_audio_command, text='Audio')
 dp.register_message_handler(music.process_metallica_command, text='Metallica')
 dp.register_message_handler(audio.process_gta_command, text='GTA Vice City Radio')
+dp.register_message_handler(music.process_wave_command, text='Wave 103')
 dp.register_message_handler(music.process_gta_v_rock_command, text='V-ROCK')
 dp.register_message_handler(music.process_flash_fm_command, text='Flash-FM')
 dp.register_message_handler(send_echo)

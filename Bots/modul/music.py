@@ -12,6 +12,14 @@ AUDIO_FLASH2 = os.path.expanduser(
     '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/Flash FM part_2.mp3')
 AUDIO_FLASH3= os.path.expanduser(
     '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/Flash FM part_3.mp3')
+AUDIO_WAVE1= os.path.expanduser(
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/Wave 103/GTA Vice City Wave 103 part_1.mp3')
+AUDIO_WAVE2= os.path.expanduser(
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/Wave 103/GTA Vice City Wave 103 part_2.mp3')
+AUDIO_WAVE3= os.path.expanduser(
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/Wave 103/GTA Vice City Wave 103 part_3.mp3')
+AUDIO_WAVE4= os.path.expanduser(
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/Wave 103/GTA Vice City Wave 103 part_4.mp3')
 METALLICA1 = os.path.expanduser(
     '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/01 - Metallica - 72 Seasons.mp3')
 METALLICA2 = os.path.expanduser(
@@ -61,6 +69,17 @@ async def process_flash_fm_command(message: types.Message):
     await message.answer_audio(audio2, performer='GTA vice city part 2', title='Flash-FM')
     await message.answer_audio(audio1, performer='GTA vice city part 3', title='Flash-FM')
 
+async def process_wave_command(message: types.Message):
+    audio1 = types.InputFile(AUDIO_WAVE1)
+    audio2 = types.InputFile(AUDIO_WAVE2)
+    audio3 = types.InputFile(AUDIO_WAVE3)
+    audio4 = types.InputFile(AUDIO_WAVE4)
+    WAVE = open('/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/Wave 103/1_.jpg', 'rb')
+    await message.answer_photo(WAVE)
+    await message.answer_audio(audio1, performer='GTA vice city part 1', title='Wave-103-FM')
+    await message.answer_audio(audio2, performer='GTA vice city part 1', title='Wave-103-FM')
+    await message.answer_audio(audio3, performer='GTA vice city part 1', title='Wave-103-FM')
+    await message.answer_audio(audio4, performer='GTA vice city part 1', title='Wave-103-FM')
 
 async def process_metallica_command(message: types.Message):
     audio = types.InputFile(METALLICA1)

@@ -20,11 +20,13 @@ button_15: KeyboardButton = KeyboardButton('Metallica')
 button_16: KeyboardButton = KeyboardButton('GTA Vice City Radio')
 button_17: KeyboardButton = KeyboardButton('Flash-FM')
 button_18: KeyboardButton = KeyboardButton('V-ROCK')
+button_19: KeyboardButton = KeyboardButton('Wave 103')
+
 
 # Добавляем кнопки в клавиатуру методом add
 keyboard2.add(button_6, button_7, button_9, button_10, button_12, button_13, button_14)
 keyboard3.add(button_15, button_16)
-keyboard5.add(button_17, button_18)
+keyboard5.add(button_17, button_18, button_19)
 
 
 # button_1: KeyboardButton = KeyboardButton('Москва')
