@@ -6,8 +6,12 @@ AUDIO_URL = 'http://muzmo.ru/get/music/20140507/muzmo_ru_Metallica_-_Metalica_Fu
 AUDIO_URL2 = 'https://mp3muza.com/music/metallica/#'
 AUDIO_V_ROCK = os.path.expanduser(
     '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/V_ROCK/GTA_Vice_City_Radio_-_V-ROCK.mp3')
-AUDIO_FLASH = os.path.expanduser(
-    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/02-halls_and_oates-out_of_touch.mp3')
+AUDIO_FLASH1 = os.path.expanduser(
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/Flash FM part_1.mp3')
+AUDIO_FLASH2 = os.path.expanduser(
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/Flash FM part_2.mp3')
+AUDIO_FLASH3= os.path.expanduser(
+    '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/Flash FM part_3.mp3')
 METALLICA1 = os.path.expanduser(
     '/home/support/TelegramBot/Project/Bots/audio/Metallica/Metallica - 72 Seasons/01 - Metallica - 72 Seasons.mp3')
 METALLICA2 = os.path.expanduser(
@@ -48,10 +52,14 @@ async def process_gta_v_rock_command(message: types.Message):
 
 
 async def process_flash_fm_command(message: types.Message):
-    audio = types.InputFile(AUDIO_FLASH)
+    audio1 = types.InputFile(AUDIO_FLASH1)
+    audio2 = types.InputFile(AUDIO_FLASH2)
+    audio3 = types.InputFile(AUDIO_FLASH3)
     FLASH = open('/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/FLASH_FM/1.jpg', 'rb')
     await message.answer_photo(FLASH)
-    await message.answer_audio(audio, performer='GTA vice city', title='Flash-FM')
+    await message.answer_audio(audio3, performer='GTA vice city part 1', title='Flash-FM')
+    await message.answer_audio(audio2, performer='GTA vice city part 2', title='Flash-FM')
+    await message.answer_audio(audio1, performer='GTA vice city part 3', title='Flash-FM')
 
 
 async def process_metallica_command(message: types.Message):
