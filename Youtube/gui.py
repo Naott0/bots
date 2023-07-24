@@ -5,12 +5,12 @@ from tqdm import tqdm
 
 
 def download():
-    pytube_sop.streams.get_highest_resolution().download()
     mylist = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
 
     for i in tqdm(mylist):
         dpg.set_value('bar', i)
         time.sleep(0.1)
+        pytube_sop.streams.get_highest_resolution().download()
 
     print("Finish")
     with dpg.window(label="", pos=(150, 50), tag='modal_id'):
