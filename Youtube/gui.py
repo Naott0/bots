@@ -20,30 +20,24 @@ def download():
 
 def url(sender):
     global pytube_sop
-    global title
+    global text_tag
     sop = (dpg.get_value(sender))
     pytube_sop = pytube.YouTube(sop)
-    title = pytube_sop.title
-
+    text_tag = pytube_sop.title
     print('Url OK')
-    print(title)
+    print(text_tag)
 
 
 def on_kill():
     dpg.stop_dearpygui()
 
 
-class Value:
-    pass
-
-
 dpg.create_context()
 
-value = Value()
 with dpg.window(tag="Primary Window"):
     width, height, channels, data = dpg.load_image("video.png")
 
-    with dpg.texture_registry(show=True):
+    with dpg.texture_registry(show=False):
         dpg.add_static_texture(width=width, height=height, default_value=data, tag="texture_tag")
 
     with dpg.theme() as global_theme:
@@ -58,16 +52,15 @@ with dpg.window(tag="Primary Window"):
     with dpg.viewport_menu_bar():
         with dpg.menu(label="File"):
             dpg.add_menu_item(label="Exit", callback=on_kill)
-        dpg.add_menu_item(label="Help", tag='Help')
+
+        dpg.add_menu_item(label="Help")
 
     dpg.bind_theme(global_theme)
-
-    dpg.add_text("Hi! download Youtube for yourself ! ", pos=(100, 30))
+    # dpg.add_text("Hi! download Youtube for yourself  ! ", pos=(100, 30))
     dpg.add_progress_bar(tag='bar', default_value=0, pos=(10, 60))
     dpg.add_input_text(label='URL', callback=url, tag='url', pos=(10, 90))
     dpg.add_button(label="Download", callback=download, width=100, height=20, tag='Save', pos=(10, 120))
     dpg.add_image("texture_tag", pos=(310, 50))
-    dpg.add_button(label='111111', pos=(310, 50))
 
     with dpg.tooltip("Save"):
         dpg.add_text("Click to Download")
