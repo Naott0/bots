@@ -8,7 +8,7 @@ from tqdm import tqdm
 def url_error():
     with dpg.window(label="ERROR URL", pos=(150, 70), tag='modal_id'):
         dpg.add_text('ERROR URL')
-        dpg.add_button(label="OK", pos=(70, 70), callback=lambda: dpg.configure_item("modal_id", show=False)))
+        dpg.add_button(label="OK", pos=(70, 70), callback=lambda: dpg.configure_item("modal_id", show=False))
 
 
 def download():
