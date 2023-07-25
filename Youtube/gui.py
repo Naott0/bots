@@ -1,16 +1,23 @@
 import time
 import dearpygui.dearpygui as dpg
 import pytube
+from pytube.exceptions import RegexMatchError, VideoUnavailable
 from tqdm import tqdm
 
 
+def url_error():
+    with dpg.window(label="ERROR URL", pos=(150, 70), tag='modal_id'):
+        dpg.add_text('ERROR URL')
+        dpg.add_button(label="OK", pos=(70, 70), callback=lambda: dpg.configure_item("modal_id", show=False))
+
+
 def download():
-    pytube_sop.streams.get_highest_resolution().download()
     mylist = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
 
     for i in tqdm(mylist):
         dpg.set_value('bar', i)
         time.sleep(0.1)
+        pytube_sop.streams.get_highest_resolution().download()
 
     print("Finish")
     with dpg.window(label="", pos=(150, 50), tag='modal_id'):
@@ -19,13 +26,20 @@ def download():
 
 
 def url(sender):
-    global pytube_sop
-    global text_tag
-    sop = (dpg.get_value(sender))
-    pytube_sop = pytube.YouTube(sop)
-    text_tag = pytube_sop.title
-    print('Url OK')
-    print(text_tag)
+    try:
+        global pytube_sop
+        global text_tag
+        sop = (dpg.get_value(sender))
+        pytube_sop = pytube.YouTube(sop)
+        text_tag = pytube_sop.title
+        print('Url OK')
+        print(text_tag)
+
+    except RegexMatchError:
+        url_error()
+
+    except VideoUnavailable:
+        url_error()
 
 
 def on_kill():
