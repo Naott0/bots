@@ -1,6 +1,6 @@
 import os
 from aiogram import types
-from aiogram.bot import bot
+
 
 AUDIO_URL = 'http://muzmo.ru/get/music/20140507/muzmo_ru_Metallica_-_Metalica_Fuel_12710830.mp3?sid=3ip4uccps4mp3ljt2viipsqcep'
 AUDIO_URL2 = 'https://traffic.libsyn.com/secure/5f2d7e79-208d-449a-92cf-99ab2aa90721/snctmpod_02.mp3?dest-id=3408794'
@@ -92,8 +92,6 @@ async def process_gta_v_rock_command(message: types.Message):
 
 # async def pod_krupnim_command(message: types.Message):
 #     await message.reply_audio(AUDIO_URL2, performer='Podcast', title='Bar')
-
-
 
 
 async def process_flash_fm_command(message: types.Message):
