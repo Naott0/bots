@@ -1,14 +1,12 @@
-a = int(input('Введите число N: '))
-o = 1
-for i in range(a):
-    b = int(input(f'Введите число №{o}: '))
-    o += 1
-    if b % 3 == 0 and b % 5 == 0:
-        print('FizzBuzz')
+x = int(input('Введите число N: '))
 
-    elif b % 5 == 0:
-        print('Buzz')
+for i in range(1, x+1):
+    if i % 3 == 0 and i % 5 == 0:
+        print(f'Число {i}''-''FizzBuzz')
+
+    elif i % 5 == 0:
+        print(f'Число {i}''-''Buzz')
 
     else:
-        b % 3 == 0
-        print('Fizz')
+        i % 3 == 0
+        print(f'Число {i}''-''Fizz')
