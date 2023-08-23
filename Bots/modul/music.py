@@ -1,8 +1,9 @@
 import os
 from aiogram import types
 
+
 AUDIO_URL = 'http://muzmo.ru/get/music/20140507/muzmo_ru_Metallica_-_Metalica_Fuel_12710830.mp3?sid=3ip4uccps4mp3ljt2viipsqcep'
-AUDIO_URL2 = 'https://mp3muza.com/music/metallica/#'
+AUDIO_URL2 = 'https://traffic.libsyn.com/secure/5f2d7e79-208d-449a-92cf-99ab2aa90721/snctmpod_02.mp3?dest-id=3408794'
 AUDIO_V_ROCK = os.path.expanduser(
     '/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/V_ROCK/GTA_Vice_City_Radio_-_V-ROCK.mp3')
 AUDIO_FLASH1 = os.path.expanduser(
@@ -88,6 +89,9 @@ async def process_gta_v_rock_command(message: types.Message):
     VROCK = open('/home/support/TelegramBot/Project/Bots/audio/GTA_Vice_City/V_ROCK/1.jpeg', 'rb')
     await message.answer_photo(VROCK)
     await message.answer_audio(audio, performer='GTA vice city', title='V-Rock Redio')
+
+# async def pod_krupnim_command(message: types.Message):
+#     await message.reply_audio(AUDIO_URL2, performer='Podcast', title='Bar')
 
 
 async def process_flash_fm_command(message: types.Message):

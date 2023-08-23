@@ -1,5 +1,4 @@
 import json
-
 import requests
 from aiogram import types
 
@@ -12,4 +11,3 @@ async def process_nassa_command(message: types.Message):
     url2 = (nassa.get('url'))
     await message.answer_photo(url2)
     await message.answer(f'{text1} ')
-

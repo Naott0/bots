@@ -3,6 +3,8 @@ import json
 import requests
 from aiogram import types
 
+from Project.Bots.modul import keyboards
+
 
 async def process_pogoda_command(message: types.Message):
     await message.answer('Выберите город! ', reply_markup=keyboards.keyboard)
