@@ -24,9 +24,6 @@ async def send_echo(message: types.Message):
     await message.reply("Bы ввели неверную команду, воспользуйтесь меню \nили отправьте пожалуйста /start")
 
 
-# https://www.youtube.com/watch?v=ORMED692Ma8
-# https://hits.gybka.com/artist/6573287-Gta_Vice_City_Radio/
-
 # Регистрируем хэндлеры
 dp.register_message_handler(process_start_command, commands='start')
 # dp.register_message_handler(process_pogoda_command, text='Aктуальная погода сейчас')
