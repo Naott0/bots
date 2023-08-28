@@ -1,6 +1,6 @@
 vod = input("Введи строку  ")
-n = (' ')
-z = (' ')
+n = ' '
+z = ' '
 for i in vod:
     print(n, i)
     n += z
