@@ -1,17 +1,20 @@
-import time
-import turtle
+import math
 
-a = int(input("Введите строну №1: "))
-b = int(input("Введите строну №2: "))
-c = int(input("Введите строну №3: "))
-if a + b > c and a + c > b and c + b > a:
-    screen = turtle.Screen()
-    s = turtle.Turtle()
-    for i in range(3):
-        s.forward(a)
-        s.left(120)
-    time.sleep(10)
-    print("Треугольник построен ")
+print("Введите коэффициенты для уравнения")
+print("ax^2 + bx + c = 0:")
+a = float(input("a = "))
+b = float(input("b = "))
+c = float(input("c = "))
 
+discr = b ** 2 - 4 * a * c
+print("Дискриминант D = %.2f" % discr)
+
+if discr > 0:
+    x1 = (-b + math.sqrt(discr)) / (2 * a)
+    x2 = (-b - math.sqrt(discr)) / (2 * a)
+    print("x1 = %.2f \nx2 = %.2f" % (x1, x2))
+elif discr == 0:
+    x = -b / (2 * a)
+    print("x = %.2f" % x)
 else:
-    print("Невозможно построить теругольник")
+    print("Корней нет")
