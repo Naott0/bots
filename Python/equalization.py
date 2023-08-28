@@ -15,4 +15,3 @@ if a + b > c and a + c > b and c + b > a:
 
 else:
     print("Невозможно построить теругольник")
-
