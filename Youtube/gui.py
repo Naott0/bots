@@ -3,6 +3,7 @@ import dearpygui.dearpygui as dpg
 import pytube
 from pytube.exceptions import RegexMatchError, VideoUnavailable
 from tqdm import tqdm
+from plyer import notification
 
 
 def url_error():
@@ -20,9 +21,14 @@ def download():
         pytube_sop.streams.get_highest_resolution().download()
 
     print("Finish")
-    with dpg.window(label="", pos=(150, 50), tag='modal_id'):
-        dpg.add_text('Loading is complete')
-        dpg.add_button(label="OK", pos=(70, 50), callback=lambda: dpg.configure_item("modal_id", show=False))
+    notification.notify(
+        title='Finish',
+        message='123',
+        timeout=2
+    )
+    # with dpg.window(label="", pos=(150, 50), tag='modal_id'):
+    #     dpg.add_text('Loading is complete')
+    #     dpg.add_button(label="OK", pos=(70, 50), callback=lambda: dpg.configure_item("modal_id", show=False))
 
 
 def url(sender):
