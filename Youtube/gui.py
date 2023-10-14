@@ -21,9 +21,10 @@ def download():
         pytube_sop.streams.get_highest_resolution().download()
 
     print("Finish")
+    text = str(text_tag)
     notification.notify(
-        title='Finish',
-        message='123',
+        title='Загрузка завершена!',
+        message=text,
         timeout=2
     )
     # with dpg.window(label="", pos=(150, 50), tag='modal_id'):
