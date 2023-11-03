@@ -1,0 +1,71 @@
+Развертывание на сервере
+Так, приложение готово, теперь мы хотим его запустить на сервере. Есть довольно большое количество способов сделать это, перечислю, пожалуй, самые часто используемые из них:
+
+systemd
+supervisorctl
+docker
+И эти способы, казалось бы, подразумевают установку Chrome, а этот процесс может сопровождаться различными трудностями. Первые два способа означают, что это нужно делать вручную; docker делает это согласно указаниям в Dockerfile. Но этот процесс можно упростить настолько, что о нем даже не нужно будет задумываться (не зря же в DockerHub так много образов).
+
+Помимо трех файлов также имеется пустая папка screenshots, где будут сделанные скриншоты.
+
+Давайте взглянем на Dockerfile:
+
+FROM joyzoursky/python-chromedriver:3.8
+
+WORKDIR /src
+COPY requirements.txt /src
+RUN pip install -r requirements.txt
+
+COPY . /src
+
+CMD ["python", "main.py"]
+
+Самая главная (и замечательная) часть здесь — это образ, на основе которого мы будем создавать контейнер. В нем уже установлен python (поддерживается большое количество версий интерпретатора), chromedriver и Chrome актуальной на текущий момент версии.
+
+Дальше все относительно несложно: делаем директорию src рабочей, копируем все необходимые файлы для работы программы, устанавливаем нужные зависимости и запускам скрипт.
+
+Уверен, вы заметили две операции COPY. И здесь логичен вопрос: "А почему нельзя сразу скопировать все файлы  в контейнер?" На самом деле, можно, но эта тема для отдельной статьи. Так что подписывайтесь на мой профиль и ждите новые статьи!
+Но это еще не все: теперь мы можем сократить наш код. Вот что в итоге получается:
+
+import time
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+
+def test_fullpage_screenshot(url: str, filename: str):
+    options = Options()
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--headless')
+    options.add_argument('--start-maximized')
+
+    driver = webdriver.Chrome(options=options)
+    try:
+        driver.get(url)
+        time.sleep(2)
+
+        ele = driver.find_element(By.TAG_NAME, 'body')
+        height = driver.execute_script("return document.body.scrollHeight")
+        driver.set_window_size(1920, height)
+
+        driver.save_screenshot(f"screenshots/{filename}")
+    except Exception:
+        pass
+    finally:
+        driver.close()
+        driver.quit()
+
+if __name__ == "__main__":
+    test_fullpage_screenshot("https://tproger.ru", "tproger.png")
+    test_fullpage_screenshot("https://stackoverflow.com", "stackoverflow.png")
+
+Еще один приятный бонус: теперь не нужно использовать Service для указания пути к chromedriver, так как driver автоматически заглядывает в системные файлы установленного Chrome (а он установлен в нашем контейнере) и ищет все, что ему нужно.
+
+Осталось ввести правильные команды для запуска контейнера. А они выглядят следующим образом:
+
+docker build -t full_screenshot .
+docker run -d -v $(pwd)/screenshots:/src/screenshots --name test full_screenshot
+
+Сначала создаем образ, а затем создаем и запускаем контейнер в фоновом режиме. Важно связать папку на хосте с папкой в контейнере, чтобы можно было посмотреть скриншоты (посредством флага -v), так что не упустите этот момент.
