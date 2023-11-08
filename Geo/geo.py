@@ -1,7 +1,7 @@
 import folium
 
-x = (input('введите широту: '))
-y = (input('ведите долготу: '))
+x = int(input('введите широту: '))
+y = int(input('ведите долготу: '))
 
 
 def geo(x, y):
